@@ -38,10 +38,31 @@ namespace _3DESEncrypt
         private void button2_Click(object sender, EventArgs e)
         {            
             try
-            {
-                TripleDES tDES = new TripleDES(textBox2.Text);
-                tDES.EncryptFile(textBox1.Text);
-                GC.Collect();
+            {                
+                if(textBox2.TextLength == 16)
+                {
+                    if(textBox1.TextLength != 0)
+                    {
+                        TripleDES tDES = new TripleDES(textBox2.Text);
+                        tDES.EncryptFile(textBox1.Text);
+                        GC.Collect();
+                        MessageBox.Show("File Berhasil Di Encrypt", "Informasi",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Masukkan File Terlebih Dahulu", "File Input",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Key Harus Berjumlah 16", "Gagal",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Error);
+                }                
             }
             catch(Exception ex)
             {
@@ -53,14 +74,30 @@ namespace _3DESEncrypt
         {
             try
             {
-                TripleDES tDES = new TripleDES(textBox2.Text);
-                tDES.DecryptFile(textBox1.Text);
-                GC.Collect();
+                if (textBox2.TextLength == 16)
+                {
+                    if (textBox1.TextLength != 0)
+                    {
+                        TripleDES tDES = new TripleDES(textBox2.Text);
+                        tDES.DecryptFile(textBox1.Text);
+                        GC.Collect();
+                        MessageBox.Show("File Berhasil Di Decrypt", "Informasi",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Masukkan File Terlebih Dahulu", "File Input",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Key Harus Berjumlah 16", "Gagal",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
     }
 }
