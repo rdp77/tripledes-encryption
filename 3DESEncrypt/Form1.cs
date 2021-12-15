@@ -15,7 +15,7 @@ namespace _3DESEncrypt
     {
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)] string iParam);
-        private const int EM_SETCUEBANNER = 0x1501;        
+        private const int EM_SETCUEBANNER = 0x1501;
         public Form1()
         {
             InitializeComponent();
@@ -32,16 +32,16 @@ namespace _3DESEncrypt
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          SendMessage(textBox2.Handle, EM_SETCUEBANNER, 0, "Key");        
+            SendMessage(textBox2.Handle, EM_SETCUEBANNER, 0, "Key");
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {            
+        {
             try
-            {                
-                if(textBox2.TextLength == 16)
+            {
+                if (textBox2.TextLength == 16)
                 {
-                    if(textBox1.TextLength != 0)
+                    if (textBox1.TextLength != 0)
                     {
                         TripleDES tDES = new TripleDES(textBox2.Text);
                         tDES.EncryptFile(textBox1.Text);
@@ -62,9 +62,9 @@ namespace _3DESEncrypt
                     MessageBox.Show("Key Harus Berjumlah 16", "Gagal",
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Error);
-                }                
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -99,5 +99,10 @@ namespace _3DESEncrypt
                              MessageBoxIcon.Error);
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
