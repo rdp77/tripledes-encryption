@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
@@ -14,7 +7,8 @@ namespace _3DESEncrypt
     public partial class Form1 : Form
     {
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)] string iParam);
+        private static extern 
+            Int32 SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)] string iParam);
         private const int EM_SETCUEBANNER = 0x1501;
         public Form1()
         {
@@ -43,12 +37,16 @@ namespace _3DESEncrypt
                 {
                     if (textBox1.TextLength != 0)
                     {
+                        progressBar1.Value = 25;
                         TripleDES tDES = new TripleDES(textBox2.Text);
+                        progressBar1.Value = 50;
                         tDES.EncryptFile(textBox1.Text);
                         GC.Collect();
+                        progressBar1.Value = 100;                       
                         MessageBox.Show("File Berhasil Di Encrypt", "Informasi",
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Information);
+                        progressBar1.Value = 0;
                     }
                     else
                     {
@@ -78,12 +76,16 @@ namespace _3DESEncrypt
                 {
                     if (textBox1.TextLength != 0)
                     {
+                        progressBar1.Value = 25;
                         TripleDES tDES = new TripleDES(textBox2.Text);
+                        progressBar1.Value = 50;
                         tDES.DecryptFile(textBox1.Text);
                         GC.Collect();
+                        progressBar1.Value = 100;
                         MessageBox.Show("File Berhasil Di Decrypt", "Informasi",
                              MessageBoxButtons.OK,
                              MessageBoxIcon.Information);
+                        progressBar1.Value = 0;
                     }
                     else
                     {

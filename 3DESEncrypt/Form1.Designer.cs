@@ -34,6 +34,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -46,7 +47,7 @@
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(244, 22);
+            this.button1.Location = new System.Drawing.Point(244, 56);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(80, 22);
             this.button1.TabIndex = 0;
@@ -57,7 +58,7 @@
             // button2
             // 
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Location = new System.Drawing.Point(12, 84);
+            this.button2.Location = new System.Drawing.Point(12, 118);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(312, 37);
             this.button2.TabIndex = 1;
@@ -68,7 +69,7 @@
             // textBox1
             // 
             this.textBox1.Cursor = System.Windows.Forms.Cursors.No;
-            this.textBox1.Location = new System.Drawing.Point(12, 22);
+            this.textBox1.Location = new System.Drawing.Point(12, 56);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(226, 23);
@@ -77,7 +78,7 @@
             // button3
             // 
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Location = new System.Drawing.Point(12, 127);
+            this.button3.Location = new System.Drawing.Point(12, 161);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(312, 37);
             this.button3.TabIndex = 1;
@@ -88,18 +89,28 @@
             // textBox2
             // 
             this.textBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox2.Location = new System.Drawing.Point(12, 55);
+            this.textBox2.Location = new System.Drawing.Point(12, 89);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(312, 23);
             this.textBox2.TabIndex = 2;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(12, 12);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(312, 38);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar1.TabIndex = 3;
+            this.progressBar1.UseWaitCursor = true;
             // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(336, 175);
+            this.ClientSize = new System.Drawing.Size(336, 214);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox1);
@@ -128,6 +139,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 
